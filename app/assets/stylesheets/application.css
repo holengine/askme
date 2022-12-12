@@ -6,5 +6,7 @@
  *= require layout
  *= require form
  *= require button
+ *= require question
+ *= require message
 */
 

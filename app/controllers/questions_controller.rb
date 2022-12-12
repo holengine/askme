@@ -3,24 +3,25 @@ class QuestionsController < ApplicationController
   def create
     question = Question.create(question_params)
 
-    redirect_to question_path(question)
+    redirect_to question_path(question), notice: 'Новый вопрос создан!'
   end
 
   def update
     @question.update(question_params)
 
-    redirect_to question_path(@question)
+    redirect_to question_path(@question), notice: 'Cохранили вопрос!'
   end
 
   def destroy
     @question.destroy
 
-    redirect_to questions_path
+    redirect_to questions_path, notice: 'Вопрос удален!'
   end
 
   def show; end
 
   def index
+    @question = Question.new
     @questions = Question.all
   end
 
@@ -31,7 +32,7 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def hide
-    @question.update(hidden: @question.hidden ? false : true )
+    @question.toggle(:hidden).save
 
     redirect_to questions_path
   end
