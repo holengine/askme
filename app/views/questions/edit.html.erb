@@ -1,6 +1,5 @@
 <div class="container">
   <h2 class="title-lg mb">Редактирование вопроса №<%= @question.id %></h2>
   <%= render 'form', question: @question %>
-  <p class="mt-sm inline">или</p>
-  <p class="inline"><%= link_to 'вернуться', :back %></p>
+  <span class="text-sm">или <%= link_to 'вернуться', :back %></span>
 </div>

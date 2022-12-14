@@ -1,4 +1,5 @@
 <div class="container">
   <h2 class="title-lg mb">Новый вопрос</h2>
   <%= render 'form', question: @question %>
+  <span class="text-sm">или <%= link_to 'вернуться', :back %></span>
 </div>

@@ -27,4 +27,3 @@ class SessionsController < ApplicationController
     params.require(:session)
   end
 end
-
