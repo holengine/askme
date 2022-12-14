@@ -13,9 +13,13 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.update(question_params)
+    if @question.update(question_params)
+      redirect_to question_path(@question), notice: 'Cохранили вопрос!'
+    else
+      flash.now[:alert] = 'Вы неправильно заполнили вопрос!'
 
-    redirect_to question_path(@question), notice: 'Cохранили вопрос!'
+      render :edit
+    end
   end
 
   def destroy
