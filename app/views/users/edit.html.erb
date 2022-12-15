@@ -18,11 +18,14 @@
       <p><%= form.text_field :nickname, class: 'form-text-field' %></p>
 
       <p class="mt-lg text-sm">Если не хотите менять пароль, то оставьте поля пустыми</p>
-      <p class="mt"><%= form.label :password %></p>
+      <p class="mt"><%= form.label :password, 'Пароль' %></p>
       <p><%= form.password_field :password, class: 'form-text-field' %></p>
 
-      <p class="mt"><%= form.label :password_confirmation %></p>
+      <p class="mt"><%= form.label :password_confirmation, 'Подтверждение пароля' %></p>
       <p><%= form.password_field :password_confirmation, class: 'form-text-field' %></p>
+
+      <p class="mt"><%= form.label :theme_color, 'Цвет' %></p>
+      <p class="mt-sm"><%= form.color_field :theme_color%></p>
 
       <p class="mt-lg"><%= form.submit 'Сохранить', class: 'button button-main' %></p>
       <span class="text-sm">или <%= link_to 'вернуться', :back %></span>
