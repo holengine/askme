@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  before_save :downcase_nickname
+  before_validation :downcase_nickname
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
                     presence: true,
