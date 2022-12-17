@@ -6,10 +6,13 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
                     presence: true,
                     uniqueness: true
-  validates :nickname, format: { with: /\A[a-z_]+\z/ },
+  validates :nickname, format: { with: /\A[a-z_]+\d?/ },
                        length: { maximum: 40 },
                        uniqueness: true
+
+  private
+
   def downcase_nickname
-    nickname.downcase!
+    nickname&.downcase!
   end
 end
