@@ -17,7 +17,8 @@
         <div>
           <% if current_user.present? %>
             <%= content_tag 'span', display_nickname(current_user), class: 'mr-sm' %>
-            <%= button_to 'Выйти', session_path, method: :delete %>
+            <%= link_to fa_icon('cog'), edit_user_path(current_user), title: 'Изменить вопрос' %>
+            <%= button_to fa_icon('sign-out'), session_path, method: :delete, class: 'button-white' %>
           <% else %>
             <%= link_to 'Регистрация', new_user_path, class: 'button button-yellow mr-sm' %>
             <%= link_to 'Вход', new_session_path, class: 'button button-yellow' %>
