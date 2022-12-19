@@ -16,7 +16,7 @@
         <p class="title-sm text-bold"><%= link_to 'Ask me!', root_path %></p>
         <div>
           <% if current_user.present? %>
-            <%= content_tag 'span', display_nickname(current_user), class: 'mr-sm' %>
+            <%= link_to display_nickname(current_user), user_path(current_user), class: 'mr-sm' %>
             <%= link_to fa_icon('cog'), edit_user_path(current_user), title: 'Изменить вопрос' %>
             <%= button_to fa_icon('sign-out'), session_path, method: :delete, class: 'button-white' %>
           <% else %>

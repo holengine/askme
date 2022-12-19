@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   before_validation :downcase_nickname
 
+  has_many :questions, dependent: :delete_all
+
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
                     presence: true,
                     uniqueness: true
