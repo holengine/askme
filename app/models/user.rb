@@ -14,6 +14,9 @@ class User < ApplicationRecord
 
   validates :theme_color, format: { with: /\A#\h{6}\z/ }
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'retro')
+
   private
 
   def downcase_nickname
