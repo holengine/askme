@@ -12,6 +12,8 @@ class User < ApplicationRecord
                        length: { maximum: 40 },
                        uniqueness: true
 
+  validates :theme_color, format: { with: /\A#\h{6}\z/ }
+
   private
 
   def downcase_nickname
