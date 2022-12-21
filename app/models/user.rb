@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
                     presence: true,
                     uniqueness: true
-  validates :nickname, format: { with: /\A\w*\z/ },
+  validates :nickname, format: { with: /\A\w+\z/ },
                        length: { maximum: 40 },
                        uniqueness: true
 
