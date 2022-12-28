@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :set_question_for_current_user, only: %i[update destroy edit hide]
 
   def new
-    @user = User.find(params[:user_id])
+    @user = User.find_by!(nickname: params[:nickname])
     @question = Question.new(user: @user)
   end
 
@@ -15,9 +15,9 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
     else
-      flash.now[:alert] = 'Вы неправильно заполнили вопрос!'
+      flash[:alert] = 'Вы неправильно заполнили вопрос!'
 
-      render :new
+      redirect_to user_path(@question.user)
     end
   end
 
@@ -44,8 +44,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order(created_at: :desc).last(10)
-    @users = User.order(created_at: :desc).last(10)
+    @questions = Question.order(created_at: :desc).first(10)
+    @users = User.order(created_at: :desc).first(10)
   end
 
   def edit; end

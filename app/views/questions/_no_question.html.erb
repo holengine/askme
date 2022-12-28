@@ -7,5 +7,5 @@
     <%= image_tag('not_found_question.png', alt: 'вопросов нет', width: '40%') %>
   </div>
 
-  <%= link_to 'Спроси меня', new_question_path(user_id: @user.id), class: 'button button-yellow' %>
+  <%= link_to 'Спроси меня', new_question_path(nickname: user.nickname), class: 'button button-yellow' %>
 </div>
