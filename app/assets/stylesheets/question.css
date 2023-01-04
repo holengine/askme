@@ -8,3 +8,8 @@
 .question-body {
   white-space: pre-line;
 }
+
+.question-hashtags {
+  display: inline-flex;
+  margin-top: 10px;
+}

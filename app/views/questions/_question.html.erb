@@ -2,7 +2,11 @@
   <div class="question-body mb-sm">
     <%= question.body %>
   </div>
-
+  <div class="question-hashtags mb-sm">
+    <% question.tags.each do |tag| %>
+      <%= display_hashtags(tag) %>
+    <% end %>
+  </div>
   <% if question.answer.present? %>
     <div class="mb-sm text-dark-red">
       <%= question.answer %>
