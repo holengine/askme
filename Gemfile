@@ -14,7 +14,6 @@ gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'hashtag_parser'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]

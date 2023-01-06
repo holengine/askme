@@ -58,11 +58,6 @@ class QuestionsController < ApplicationController
     redirect_to user_path(@user)
   end
 
-  def hashtags
-    tag = Tag.find_by(body: params[:body])
-    @questions = tag.questions
-  end
-
   private
 
   def ensure_current_user

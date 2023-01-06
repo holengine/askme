@@ -5,18 +5,17 @@ class Question < ApplicationRecord
 
   validates :body, length: { maximum: 280 }, presence: true
 
-  after_create do
-    HashtagParser.parse(self.body).uniq.each do |hashtag|
-      tag = Tag.find_or_create_by(body: hashtag[:text].downcase)
-      Question.find_by(id: self.id).tags << tag
-    end
-  end
+  after_save_commit :create_tags
 
-  before_update do
-    Question.find_by(id: self.id).tags.clear
-    HashtagParser.parse(self.body).uniq.each do |hashtag|
-      tag = Tag.find_or_create_by(body: hashtag[:text].downcase)
-      Question.find_by(id: self.id).tags << tag
+  private
+
+  def create_tags
+    question_tags = Question.find_by(id: self.id).tags
+
+    question_tags.clear
+
+    "#{self.body} #{self.answer}".scan(/#[[:word:]-]+/).uniq.each do |hashtag|
+      question_tags << Tag.find_or_create_by(body: hashtag.gsub('#', '').downcase)
     end
   end
 end

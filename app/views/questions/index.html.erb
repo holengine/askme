@@ -15,9 +15,7 @@
 </div>
 
 <div class="container mt-sm ">
-  <% @tags.each do |tag|%>
-      <%= display_hashtags(tag) %>
-  <% end %>
+  <%= render partial: 'tags/tag', collection: @tags %>
 </div>
 
 <div class="container mt-sm ">

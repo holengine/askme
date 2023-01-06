@@ -1,9 +1,0 @@
-<% @questions.each do |question|%>
-  <div class="mt-sm container <%= 'opacity' if question.hidden %>">
-    <p class="mb text-sm text-grey">
-      Вопрос <%= link_to "№#{question.id}", question_path(question) %>
-      для пользователя <%= link_to display_nickname(question.user), user_path(question.user) %>
-    </p>
-    <%= render question %>
-  </div>
-<% end %>
