@@ -9,7 +9,6 @@
   <% end %>
   <% if question.tags.present? %>
     <div class="question-hashtags mt-md mb-sm">
-    <p class="text-sm">Хэш-тэги:</p>
     <%= render partial: 'tags/tag', collection: question.tags %>
   </div>
   <% end %>
